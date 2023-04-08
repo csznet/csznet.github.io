@@ -4,6 +4,25 @@
     <title>Tags on CSZNET</title>
     <link>https://csznet.github.io/tags/</link>
     <description>Recent content in Tags on CSZNET</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="https://csznet.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Sat, 08 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://csznet.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>iptables</title>
+      <link>https://csznet.github.io/tags/iptables/</link>
+      <pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://csznet.github.io/tags/iptables/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>v2ray</title>
+      <link>https://csznet.github.io/tags/v2ray/</link>
+      <pubDate>Sat, 08 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://csznet.github.io/tags/v2ray/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

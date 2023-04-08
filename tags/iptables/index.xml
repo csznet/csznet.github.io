@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>文章 on CSZNET</title>
-    <link>https://csznet.github.io/posts/</link>
-    <description>Recent content in 文章 on CSZNET</description>
+    <title>iptables on CSZNET</title>
+    <link>https://csznet.github.io/tags/iptables/</link>
+    <description>Recent content in iptables on CSZNET</description>
     <generator>Hugo -- gohugo.io</generator>
-    <lastBuildDate>Sat, 08 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://csznet.github.io/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://csznet.github.io/tags/iptables/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>v2ray使用iptables实现动态端口</title>
       <link>https://csznet.github.io/posts/v2ray-iptables/</link>
