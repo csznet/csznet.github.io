@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>项目 on CSZNET</title>
+    <link>https://csznet.github.io/project/</link>
+    <description>Recent content in 项目 on CSZNET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <lastBuildDate>Fri, 07 Apr 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://csznet.github.io/project/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>对接ChatGPT使用3.5模型连续对话</title>
+      <link>https://csznet.github.io/project/chat-csznet/</link>
+      <pubDate>Fri, 07 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://csznet.github.io/project/chat-csznet/</guid>
+      <description>&lt;p&gt;ChatGPT官网的免费对话虽说免费，但是问题很多，比如一段时间不交互就要重新进入&lt;br&gt;
+再比如稳定性差、经常需要CF验证，于是就自己使用API对接了一个&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>go File - 简陋的在线文件管理器</title>
+      <link>https://csznet.github.io/project/go-file/</link>
+      <pubDate>Thu, 06 Apr 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://csznet.github.io/project/go-file/</guid>
+      <description>&lt;p&gt;尝试使用Caddy代替Nginx服务时，发现光使用SSH，不使用SCP、SFTP工具时，管理文件很是麻烦，也不想去装宝塔，索性就自己写了个简陋的在线文件管理器&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
