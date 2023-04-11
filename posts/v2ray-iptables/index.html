@@ -276,6 +276,28 @@ if (test_tcp_connection($address,$port)) {
 </a>
 
 <script>
+    
+var postContents = document.getElementsByClassName('post-content');
+
+
+for (var i = 0; i < postContents.length; i++) {
+  var postContent = postContents[i];
+  var links = postContent.getElementsByTagName('a');
+
+  
+  for (var j = 0; j < links.length; j++) {
+    var link = links[j];
+    var href = link.getAttribute('href');
+
+    
+    if (href && (href.startsWith('http://') || href.startsWith('https://'))) {
+      link.setAttribute('target', '_blank');
+      link.setAttribute('rel', 'noopener noreferrer');
+    }
+  }
+}
+
+
     let menu = document.getElementById('menu')
     if (menu) {
         menu.scrollLeft = localStorage.getItem("menu-scroll-position");
