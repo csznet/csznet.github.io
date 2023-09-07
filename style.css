@@ -13,7 +13,7 @@ body {
     -webkit-background-clip: text;
     background-clip: text;
     color: #0000;
-    white-space: nowrap;
+/*     white-space: nowrap; */
     background-image: linear-gradient(
             var(--n-rotate),
             var(--n-color-start) 0%,
