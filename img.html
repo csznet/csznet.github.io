@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Telegram图床</title>
+    <meta name="keywords" content="telegram图床,tg图床,免费图床,永久图床,图片外链,免费图片外链" />
+    <meta name="description" content="telegram图床,tg图床,免费图床,永久图床,图片外链,免费图片外链" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta charset="UTF-8">
+    <style>
+    #uploadButton,
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .custom-file-input {
+            display: none;
+        }
+
+        .custom-file-label {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .custom-file-label:hover {
+            background-color: #0056b3;
+        }
+
+        #uploadButton {
+            background-color: #007BFF;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #uploadButton[disabled] {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+
+        #uploadButton:hover {
+            background-color: #0056b3;
+        }
+
+        #response {
+            margin-top: 20px;
+            padding: 10px;
+        }
+
+        .response-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .response-success {
+            background-color: #d4edda;
+            border-color: #c3e6cb;
+            color: #155724;
+        }
+
+        .response-error {
+            background-color: #f8d7da;
+            border-color: #f5c6cb;
+            color: #721c24;
+        }
+
+        #loading {
+            display: none;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>上传图片到 Telegram</h1>
+    <label for="uploadFile" class="custom-file-label">选择文件</label>
+    <input type="file" name="image" id="uploadFile" accept=".jpg, .jpeg, .png" class="custom-file-input">
+    <button id="uploadButton">上传</button>
+
+    <div id="loading">上传中...</div>
+    <div id="response" class="ui-widget">
+    </div>
+
+    <script>
+        $(document).ready(function () {
+            $('#uploadFile').change(function () {
+                var fileName = $(this).val().split('\\').pop();
+                if (fileName) {
+                    $('.custom-file-label').text('已选择文件: ' + fileName).css('background-color', '#0056b3');
+                } else {
+                    $('.custom-file-label').text('选择文件').css('background-color', '#007BFF');
+                }
+            });
+
+            $('#uploadButton').click(function () {
+                var fileInput = document.getElementById('uploadFile');
+                var file = fileInput.files[0];
+
+                if (file) {
+                    var formData = new FormData();
+                    formData.append('image', file);
+
+                    // 禁用上传按钮并显示loading
+                    $('#uploadButton').prop('disabled', true);
+                    $('#uploadButton').text('上传中...');
+                    $('#loading').show();
+                    var baseUrl = "https://tgtu.ikun123.com";
+                    $.ajax({
+                        type: 'POST',
+                        url: baseUrl+'/api',
+                        data: formData,
+                        contentType: false,
+                        processData: false,
+                        success: function (response) {
+                            if (response.code === 1) {
+                                var imgUrl = baseUrl+ response.message;
+                                var newItem = $('<div class="response-item response-success">上传成功，图片外链：<a target="_blank" href="'+imgUrl+'">'+imgUrl+'</a></div>');
+                                $('#response').append(newItem);
+
+                                // 清除文件输入框的值
+                                $('#uploadFile').val('');
+                                $('.custom-file-label').text('选择文件').css('background-color', '#007BFF');
+                            } else {
+                                var newItem = $('<div class="response-item response-error">上传失败,错误信息：'+response.message+'</div>');
+                                $('#response').append(newItem);
+                            }
+                        },
+                        error: function () {
+                            var newItem = $('<div class="response-item response-error">上传失败</div>');
+                            $('#response').append(newItem);
+                        },
+                        complete: function () {
+                            // 启用上传按钮并隐藏loading
+                            $('#uploadButton').prop('disabled', false);
+                            $('#uploadButton').text('上传');
+                            $('#loading').hide();
+                        }
+                    });
+                } else {
+                    alert('请选择一个图片文件');
+                }
+            });
+        });
+    </script>
+    <a href="https://www.csz.net/"><img src="https://www.csz.net/csznet.png"></a>
+</body>
+</html>
