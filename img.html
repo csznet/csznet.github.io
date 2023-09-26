@@ -2,12 +2,19 @@
 <html>
 <head>
     <title>Telegram图床</title>
-    <meta name="keywords" content="telegram图床,tg图床,免费图床,永久图床,图片外链,免费图片外链" />
-    <meta name="description" content="telegram图床,tg图床,免费图床,永久图床,图片外链,免费图片外链" />
+    <meta name="keywords" content="telegram图床,tg图床,免费图床,永久图床,图片外链,免费图片外链,纸飞机图床,电报图床" />
+    <meta name="description" content="telegram图床,tg图床,免费图床,永久图床,图片外链,免费图片外链,纸飞机图床,电报图床" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta charset="UTF-8">
     <style>
-    #uploadButton,
+        #uploadButton,
+        #uploadFileLabel {
+            display: block;
+            max-width: 200px; /* 固定宽度 */
+            margin: 0 auto; /* 居中 */
+            margin-bottom: 10px; /* 添加底部间距 */
+        }
+
         body {
             font-family: Arial, sans-serif;
             text-align: center;
@@ -75,12 +82,23 @@
         #loading {
             display: none;
         }
+        .copy-code{
+            margin: 5px;
+        }
+        .copy-links{
+            margin-top: 5px;
+        }
+        #uploadButton[disabled]:hover {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
     </style>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
     <h1>上传图片到 Telegram</h1>
-    <label for="uploadFile" class="custom-file-label">选择文件</label>
+    <label for="uploadFile" id="uploadFileLabel" class="custom-file-label">选择文件</label>
     <input type="file" name="image" id="uploadFile" accept=".jpg, .jpeg, .png" class="custom-file-input">
     <button id="uploadButton">上传</button>
 
@@ -93,9 +111,9 @@
             $('#uploadFile').change(function () {
                 var fileName = $(this).val().split('\\').pop();
                 if (fileName) {
-                    $('.custom-file-label').text('已选择文件: ' + fileName).css('background-color', '#0056b3');
+                    $('#uploadFileLabel').text('已选择文件: ' + fileName).css('background-color', '#0056b3');
                 } else {
-                    $('.custom-file-label').text('选择文件').css('background-color', '#007BFF');
+                    $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
                 }
             });
 
@@ -119,22 +137,40 @@
                         contentType: false,
                         processData: false,
                         success: function (response) {
-                            if (response.code === 1) {
-                                var imgUrl = baseUrl+ response.message;
-                                var newItem = $('<div class="response-item response-success">上传成功，图片外链：<a target="_blank" href="'+imgUrl+'">'+imgUrl+'</a></div>');
-                                $('#response').append(newItem);
+    if (response.code === 1) {
+        var imgUrl = baseUrl + response.message;
+        var newItem = $('<div class="response-item response-success">上传成功，图片外链：<a target="_blank" href="' + imgUrl + '">' + imgUrl + '</a>' +
+            '<div class="copy-links">' +
+            '<span class="copy-code" data-clipboard-text="&lt;img src=&quot;' + imgUrl + '&quot; alt=&quot;Your Alt Text&quot;&gt;">HTML</span>' +
+            '<span class="copy-code" data-clipboard-text="![Alt Text](' + imgUrl + ')">Markdown</span>' +
+            '<span class="copy-code" data-clipboard-text="[img]' + imgUrl + '[/img]">BBCode</span>' +
+            '</div></div>');
+        $('#response').prepend(newItem); // 将新数据放在最前面
 
-                                // 清除文件输入框的值
-                                $('#uploadFile').val('');
-                                $('.custom-file-label').text('选择文件').css('background-color', '#007BFF');
-                            } else {
-                                var newItem = $('<div class="response-item response-error">上传失败,错误信息：'+response.message+'</div>');
-                                $('#response').append(newItem);
-                            }
-                        },
+        // 清除文件输入框的值
+        $('#uploadFile').val('');
+        $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
+
+        // 添加复制功能
+        $('.copy-code').click(function () {
+            var textToCopy = $(this).data('clipboard-text');
+            var tempInput = $('<input>');
+            $('body').append(tempInput);
+            tempInput.val(textToCopy).select();
+            document.execCommand('copy');
+            tempInput.remove();
+            alert('复制成功');
+        });
+    } else {
+        var newItem = $('<div class="response-item response-error">上传失败,错误信息：' + response.message + '</div>');
+        $('#response').prepend(newItem); // 将新数据放在最前面
+    }
+},
+
+
                         error: function () {
                             var newItem = $('<div class="response-item response-error">上传失败</div>');
-                            $('#response').append(newItem);
+                            $('#response').prepend(newItem); // 将新数据放在最前面
                         },
                         complete: function () {
                             // 启用上传按钮并隐藏loading
