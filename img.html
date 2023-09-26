@@ -127,7 +127,7 @@
 
                     // 禁用上传按钮并显示loading
                     $('#uploadButton').prop('disabled', true);
-                    $('#uploadButton').text('上传中...');
+                    $('#uploadButton').text('上传中');
                     $('#loading').show();
                     var baseUrl = "https://tgtu.ikun123.com";
                     $.ajax({
@@ -151,16 +151,24 @@
         $('#uploadFile').val('');
         $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
 
-        // 添加复制功能
-        $('.copy-code').click(function () {
-            var textToCopy = $(this).data('clipboard-text');
-            var tempInput = $('<input>');
-            $('body').append(tempInput);
-            tempInput.val(textToCopy).select();
-            document.execCommand('copy');
-            tempInput.remove();
-            alert('复制成功');
-        });
+// 添加复制功能
+$('.copy-code').click(function () {
+    var textToCopy = $(this).data('clipboard-text');
+    var tempInput = $('<input>');
+    $('body').append(tempInput);
+    tempInput.val(textToCopy).select();
+    document.execCommand('copy');
+    tempInput.remove();
+
+    // 显示复制成功文本
+    var copyText = $(this);
+    var originalText = copyText.text();
+    copyText.text('复制成功');
+
+    setTimeout(function () {
+        copyText.text(originalText);
+    }, 1000);
+});
     } else {
         var newItem = $('<div class="response-item response-error">上传失败,错误信息：' + response.message + '</div>');
         $('#response').prepend(newItem); // 将新数据放在最前面
