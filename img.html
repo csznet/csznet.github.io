@@ -101,97 +101,108 @@
     <label for="uploadFile" id="uploadFileLabel" class="custom-file-label">选择文件</label>
     <input type="file" name="image" id="uploadFile" accept=".jpg, .jpeg, .png" class="custom-file-input">
     <button id="uploadButton">上传</button>
-
     <div id="loading">上传中...</div>
     <div id="response" class="ui-widget">
     </div>
 
     <script>
-        $(document).ready(function () {
-            $('#uploadFile').change(function () {
-                var fileName = $(this).val().split('\\').pop();
-                if (fileName) {
-                    $('#uploadFileLabel').text('已选择文件: ' + fileName).css('background-color', '#0056b3');
-                } else {
-                    $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
-                }
-            });
-
-            $('#uploadButton').click(function () {
-                var fileInput = document.getElementById('uploadFile');
-                var file = fileInput.files[0];
-
-                if (file) {
-                    var formData = new FormData();
-                    formData.append('image', file);
-
-                    // 禁用上传按钮并显示loading
-                    $('#uploadButton').prop('disabled', true);
-                    $('#uploadButton').text('上传中');
-                    $('#loading').show();
-                    var baseUrl = "https://tgtu.ikun123.com";
-                    $.ajax({
-                        type: 'POST',
-                        url: baseUrl+'/api',
-                        data: formData,
-                        contentType: false,
-                        processData: false,
-                        success: function (response) {
-    if (response.code === 1) {
-        var imgUrl = baseUrl + response.message;
-        var newItem = $('<div class="response-item response-success">上传成功，图片外链：<a target="_blank" href="' + imgUrl + '">' + imgUrl + '</a>' +
-            '<div class="copy-links">' +
-            '<span class="copy-code" data-clipboard-text="&lt;img src=&quot;' + imgUrl + '&quot; alt=&quot;Your Alt Text&quot;&gt;">HTML</span>' +
-            '<span class="copy-code" data-clipboard-text="![Alt Text](' + imgUrl + ')">Markdown</span>' +
-            '<span class="copy-code" data-clipboard-text="[img]' + imgUrl + '[/img]">BBCode</span>' +
-            '</div></div>');
-        $('#response').prepend(newItem); // 将新数据放在最前面
-
-        // 清除文件输入框的值
-        $('#uploadFile').val('');
-        $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
-
-// 添加复制功能
-$('.copy-code').click(function () {
-    var textToCopy = $(this).data('clipboard-text');
-    var tempInput = $('<input>');
-    $('body').append(tempInput);
-    tempInput.val(textToCopy).select();
-    document.execCommand('copy');
-    tempInput.remove();
-
-    // 显示复制成功文本
-    var copyText = $(this);
-    var originalText = copyText.text();
-    copyText.text('复制成功');
-
-    setTimeout(function () {
-        copyText.text(originalText);
-    }, 1000);
-});
-    } else {
-        var newItem = $('<div class="response-item response-error">上传失败,错误信息：' + response.message + '</div>');
-        $('#response').prepend(newItem); // 将新数据放在最前面
+// 监听粘贴事件
+document.addEventListener('paste', function (e) {
+    var items = e.clipboardData.items;
+    for (var i = 0; i < items.length; i++) {
+        var item = items[i];
+        if (item.type.indexOf('image') !== -1) {
+            // 获取粘贴的图片文件
+            var file = item.getAsFile();
+            // 调用上传函数，将file传递给上传逻辑
+            $('#uploadFileLabel').text("已选择剪贴板文件").css('background-color', '#0056b3');
+            uploadImg(file);
+        }
     }
-},
+});
+$(document).ready(function () {
+    $('#uploadFile').change(function () {
+        var fileName = $(this).val().split('\\').pop();
+        if (fileName) {
+            $('#uploadFileLabel').text('已选择文件: ' + fileName).css('background-color', '#0056b3');
+        } else {
+            $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
+        }
+    });
+    $('#uploadButton').click(function () {
+        var fileInput = document.getElementById('uploadFile');
+        var file = fileInput.files[0];
+        if(file){
+            uploadImg(file)
+        }else{
+            alert('请选择一个图片文件');
+        }
+    });
+});
+function uploadImg(file){
+    var formData = new FormData();
+            formData.append('image', file);
+            // 禁用上传按钮并显示loading
+            $('#uploadButton').prop('disabled', true);
+            $('#uploadButton').text('上传中');
+            $('#loading').show();
+            var baseUrl = "https://tgtu.ikun123.com";
+            $.ajax({
+                type: 'POST',
+                url: baseUrl+'/api',
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {
+                    if (response.code === 1) {
+                        var imgUrl = baseUrl + response.message;
+                        var newItem = $('<div class="response-item response-success">上传成功，图片外链：<a target="_blank" href="' + imgUrl + '">' + imgUrl + '</a>' +
+                            '<div class="copy-links">' +
+                            '<span class="copy-code" data-clipboard-text="&lt;img src=&quot;' + imgUrl + '&quot; alt=&quot;Your Alt Text&quot;&gt;">HTML</span>' +
+                            '<span class="copy-code" data-clipboard-text="![Alt Text](' + imgUrl + ')">Markdown</span>' +
+                            '<span class="copy-code" data-clipboard-text="[img]' + imgUrl + '[/img]">BBCode</span>' +
+                            '</div></div>');
+                        $('#response').prepend(newItem); // 将新数据放在最前面
 
+                        // 清除文件输入框的值
+                        $('#uploadFile').val('');
+                        $('#uploadFileLabel').text('选择文件').css('background-color', '#007BFF');
 
-                        error: function () {
-                            var newItem = $('<div class="response-item response-error">上传失败</div>');
-                            $('#response').prepend(newItem); // 将新数据放在最前面
-                        },
-                        complete: function () {
-                            // 启用上传按钮并隐藏loading
-                            $('#uploadButton').prop('disabled', false);
-                            $('#uploadButton').text('上传');
-                            $('#loading').hide();
-                        }
-                    });
-                } else {
-                    alert('请选择一个图片文件');
+                        // 添加复制功能
+                        $('.copy-code').click(function () {
+                            var textToCopy = $(this).data('clipboard-text');
+                            var tempInput = $('<input>');
+                            $('body').append(tempInput);
+                            tempInput.val(textToCopy).select();
+                            document.execCommand('copy');
+                            tempInput.remove();
+
+                            // 显示复制成功文本
+                            var copyText = $(this);
+                            var originalText = copyText.text();
+                            copyText.text('复制成功');
+
+                            setTimeout(function () {
+                                copyText.text(originalText);
+                            }, 1000);
+                        });
+                    } else {
+                        var newItem = $('<div class="response-item response-error">上传失败,错误信息：' + response.message + '</div>');
+                        $('#response').prepend(newItem); // 将新数据放在最前面
+                    }
+                },
+                error: function () {
+                    var newItem = $('<div class="response-item response-error">上传失败</div>');
+                    $('#response').prepend(newItem); // 将新数据放在最前面
+                },
+                complete: function () {
+                    // 启用上传按钮并隐藏loading
+                    $('#uploadButton').prop('disabled', false);
+                    $('#uploadButton').text('上传');
+                    $('#loading').hide();
                 }
             });
-        });
+}
     </script>
     <a href="https://www.csz.net/"><img src="https://www.csz.net/csznet.png"></a>
 </body>
