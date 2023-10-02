@@ -43,7 +43,7 @@
 <p>以Docker方式运行为例，首先pull镜像</p>
 <pre tabindex="0"><code>docker pull csznet/tgstate:latest
 </code></pre><p>创建机器人（使用@BotFather创建）并获取bot token，例如为<code>123:abc </code><br>
-创建频道，拉入机器人设为管理员，频道设置公开和id地址，例如https://t.me/tgssds<br>
+创建频道，拉入机器人设为管理员，公开频道并自定义Link地址，例如https://t.me/tgssds<br>
 <img src="img/01.png" alt="频道设置"><br>
 启动Docker镜像</p>
 <pre tabindex="0"><code>docker run -d -p 8088:8088 --name tgstate -e TOKEN=123:abc -e CHANNEL=@tgssds csznet/tgstate:latest
