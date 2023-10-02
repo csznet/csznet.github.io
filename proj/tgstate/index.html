@@ -47,7 +47,8 @@
 <img src="img/01.png" alt="频道设置"><br>
 启动Docker镜像</p>
 <pre tabindex="0"><code>docker run -d -p 8088:8088 --name tgstate -e TOKEN=123:abc -e CHANNEL=@tgssds csznet/tgstate:latest
-</code></pre><p>可以看到，TOKEN和CHANNEL的设置分别是<code>TOKEN=123:abc</code>和<code>CHANNEL=@tgssds</code></p>
+</code></pre><p>其中的TOKEN和CHANNEL要设置为你的bot token和频道Link后缀<br>
+可以看到，TOKEN和CHANNEL的设置分别是<code>TOKEN=123:abc</code>和<code>CHANNEL=@tgssds</code></p>
 <h2 id="其它">其它</h2>
 <p>建议套上Cloudflare并设置页面规则给<code>/img/*</code>和<code>/d/*</code>完全缓存<br>
 <img src="img/02.png" alt="CloudFlare Page Rules"><br>
