@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Proj on CSZNET</title>
+    <link>https://www.csz.net/proj/</link>
+    <description>Recent content in Proj on CSZNET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Jan 2023 08:30:00 -0700</lastBuildDate><atom:link href="https://www.csz.net/proj/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>goFile</title>
+      <link>https://www.csz.net/proj/gofile/</link>
+      <pubDate>Fri, 17 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.csz.net/proj/gofile/</guid>
+      <description>便捷的Linux Web File Manager
+一键安装脚本：
+bash &amp;lt;(curl -s https://raw.githubusercontent.com/csznet/goFile/main/goFile.sh) 在需要调起Web文件管理的目录下输入goFile即可
+开源地址</description>
+    </item>
+    
+  </channel>
+</rss>
