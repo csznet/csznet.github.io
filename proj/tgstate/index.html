@@ -5,11 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>tgState | CSZNET</title>
 
-      <link rel="stylesheet" href="/css/main.min.7826aa11fcb372052e71172777ca8e6f9cf9226d1a7c58a8eb839494f38abacf.css" integrity="sha256-eCaqEfyzcgUucRcnd8qOb5z5Im0afFio64OUlPOKus8=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.c07a5c947bbc380dc8d1ccbeb8066265099366e708e0a739ac9feaec28147b73.css" integrity="sha256-wHpclHu8OA3I0cy&#43;uAZiZQmTZucI4Kc5rJ/q7CgUe3M=" crossorigin="anonymous">
 
 
       <script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism.min.css">
 
 </head>
 <body>
@@ -41,13 +43,13 @@
 <h1 id="使用教程">使用教程</h1>
 <h2 id="搭建">搭建</h2>
 <p>以Docker方式运行为例，首先pull镜像</p>
-<pre tabindex="0"><code>docker pull csznet/tgstate:latest
-</code></pre><p>创建机器人（使用@BotFather创建）并获取bot token，例如为<code>123:abc </code><br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span>docker pull csznet/tgstate:latest<span style="color:#a00;background-color:#faa">
+</span></span></span></code></pre></div><p>创建机器人（使用@BotFather创建）并获取bot token，例如为<code>123:abc </code><br>
 创建频道，拉入机器人设为管理员，公开频道并自定义Link地址，例如https://t.me/tgssds<br>
 <img src="img/01.png" alt="频道设置"><br>
 启动Docker镜像</p>
-<pre tabindex="0"><code>docker run -d -p 8088:8088 --name tgstate -e TOKEN=123:abc -e CHANNEL=@tgssds csznet/tgstate:latest
-</code></pre><p>其中的TOKEN和CHANNEL要设置为你的bot token和频道Link后缀<br>
+<div class="highlight"><pre tabindex="0" style="background-color:#f0f3f3;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-docker" data-lang="docker"><span style="display:flex;"><span>docker run -d -p 8088:8088 --name tgstate -e <span style="color:#033">TOKEN</span><span style="color:#555">=</span>123:abc -e <span style="color:#033">CHANNEL</span><span style="color:#555">=</span>@tgssds csznet/tgstate:latest<span style="color:#a00;background-color:#faa">
+</span></span></span></code></pre></div><p>其中的TOKEN和CHANNEL要设置为你的bot token和频道Link后缀<br>
 可以看到，TOKEN和CHANNEL的设置分别是<code>TOKEN=123:abc</code>和<code>CHANNEL=@tgssds</code></p>
 <h2 id="其它">其它</h2>
 <p>建议套上Cloudflare并设置页面规则给<code>/img/*</code>和<code>/d/*</code>完全缓存<br>
@@ -68,5 +70,9 @@
     <p>Copyright 2023. All rights reserved.</p>
 <a href="/"><img src="/csznet.png" alt="CSZNET"/></a>
   </footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism-core.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism-autoloader.min.js"></script>
+  
 </body>
 </html>
