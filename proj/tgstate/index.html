@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <title>tgState | CSZNET</title>
 
-      <link rel="stylesheet" href="/css/main.min.114eab418fd0457b0b37db9fad8a7da212556bb3edfa2bafc26f966085aa94d7.css" integrity="sha256-EU6rQY/QRXsLN9ufrYp9ohJVa7Pt&#43;iuvwm&#43;WYIWqlNc=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.287bd4330377ae9a0503f110731342a5fb965fb21688ad0aae52f309da1ea786.css" integrity="sha256-KHvUMwN3rpoFA/EQcxNCpfuWX7IWiK0KrlLzCdoep4Y=" crossorigin="anonymous">
 
 
       <script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
@@ -38,6 +38,21 @@
   <p>使用Telegram机器人和频道作为媒介存储的图床<br>
 最大上传支持20MB，建议配合CloudFlare的缓存+always online使用<br>
 <a href="https://github.com/csznet/tgState" target="_blank" rel="noopener">开源地址</a></p>
+<h1 id="使用教程">使用教程</h1>
+<h2 id="搭建">搭建</h2>
+<p>以Docker方式运行为例，首先pull镜像</p>
+<pre tabindex="0"><code>docker pull csznet/tgstate:latest
+</code></pre><p>创建机器人（使用@BotFather创建）并获取bot token，例如为<code>123:abc </code><br>
+创建频道，拉入机器人设为管理员，频道设置公开和id地址，例如https://t.me/tgssds<br>
+<img src="img/01.png" alt="频道设置"><br>
+启动Docker镜像</p>
+<pre tabindex="0"><code>docker run -d -p 8088:8088 --name tgstate -e TOKEN=123:abc -e CHANNEL=@tgssds csznet/tgstate:latest
+</code></pre><p>可以看到，TOKEN和CHANNEL的设置分别是<code>TOKEN=123:abc</code>和<code>CHANNEL=@tgssds</code></p>
+<h2 id="其它">其它</h2>
+<p>建议套上Cloudflare并设置页面规则给<code>/img/*</code>和<code>/d/*</code>完全缓存<br>
+<img src="img/02.png" alt="CloudFlare Page Rules"><br>
+开启Always Online<br>
+<img src="img/03.png" alt="CloudFlare Page Rules"></p>
 
 </div>
   
