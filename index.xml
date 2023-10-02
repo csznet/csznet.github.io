@@ -22,7 +22,9 @@ docker pull csznet/tgstate:latest 创建机器人（使用@BotFather创建）并
 docker run -d -p 8088:8088 --name tgstate -e TOKEN=123:abc -e CHANNEL=@tgssds csznet/tgstate:latest 其中的TOKEN和CHANNEL要设置为你的bot token和频道Link后缀
 可以看到，TOKEN和CHANNEL的设置分别是TOKEN=123:abc和CHANNEL=@tgssds
 其它 建议套上Cloudflare并设置页面规则给/img/*和/d/*完全缓存
-开启Always Online</description>
+开启Always Online
+使用CloudFlare WAF控制请求速率
+建议设置10秒内不能超过2次</description>
     </item>
     
     <item>
