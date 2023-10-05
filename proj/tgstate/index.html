@@ -50,22 +50,22 @@
 目的：解决开启SSL&amp;Cloudflare CDN后重定向过多问题<br>
 设置路径：域名-&gt;SSL/TLS-&gt;Overview<br>
 设置为Full(strict)<br>
-<img src="https://img.static.csz.net/d/3.png" alt="SSL证书访问"></p>
+<img src="https://img-static.csz.net/d/3.png" alt="SSL证书访问"></p>
 <p><strong>完全缓存图片</strong><br>
 目的：加快访问速度，减少api请求次数<br>
 设置路径：域名-&gt;Rules-&gt;Page Rules-&gt;Create Page Rule<br>
 给<code>/d/*</code>设置缓存所有，如下<br>
-<img src="https://img.static.csz.net/d/0.png" alt="完全缓存图片"><br>
-<img src="https://img.static.csz.net/d/4.png" alt="完全缓存图片"></p>
+<img src="https://img-static.csz.net/d/0.png" alt="完全缓存图片"><br>
+<img src="https://img-static.csz.net/d/4.png" alt="完全缓存图片"></p>
 <p><strong>控制请求速率</strong><br>
 目的：防止刷上传<br>
 设置路径：域名-&gt;Security-&gt;WAF-&gt;Rate limiting rules<br>
 建议给<code>/api</code>限制在10s不超过2次请求，如下<br>
-<img src="https://img.static.csz.net/d/1.png" alt="控制请求速率"></p>
+<img src="https://img-static.csz.net/d/1.png" alt="控制请求速率"></p>
 <p><strong>开启Always Online</strong><br>
 目的：当服务宕机后，图片正常访问<br>
 设置路径：域名-&gt;Caching-&gt;Configuration-&gt;Always Online
-<img src="https://img.static.csz.net/d/2.png" alt="开启Always Online"></p>
+<img src="https://img-static.csz.net/d/2.png" alt="开启Always Online"></p>
 
 </div>
   
