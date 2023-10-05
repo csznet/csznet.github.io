@@ -17,10 +17,23 @@
 最大上传支持20MB，建议配合CloudFlare的缓存+always online使用
 支持Vercel一键搭建 &amp;amp; Docker一键部署 &amp;amp; 二进制运行
 开源地址
-CloudFlare建议设置 建议套上Cloudflare并设置页面规则给/d/*完全缓存
+进阶指南 Vercel vercel默认域名部分地区会有阻断，建议添加自定义域名
+使用cname解析到cname-china.vercel-dns.com
+CloudFlare SSL证书访问
+目的：解决开启SSL&amp;amp;Cloudflare CDN后重定向过多问题
+设置路径：域名-&amp;gt;SSL/TLS-&amp;gt;Overview
+设置为Full(strict)
+完全缓存图片
+目的：加快访问速度，减少api请求次数
+设置路径：域名-&amp;gt;Rules-&amp;gt;Page Rules-&amp;gt;Create Page Rule
+给/d/*设置缓存所有，如下
+控制请求速率
+目的：防止刷上传
+设置路径：域名-&amp;gt;Security-&amp;gt;WAF-&amp;gt;Rate limiting rules
+建议给/api限制在10s不超过2次请求，如下
 开启Always Online
-使用CloudFlare WAF控制请求速率
-建议设置10秒内不能超过2次</description>
+目的：当服务宕机后，图片正常访问
+设置路径：域名-&amp;gt;Caching-&amp;gt;Configuration-&amp;gt;Always Online </description>
     </item>
     
     <item>

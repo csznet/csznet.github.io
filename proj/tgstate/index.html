@@ -41,15 +41,30 @@
 最大上传支持20MB，建议配合CloudFlare的缓存+always online使用<br>
 支持Vercel一键搭建 &amp; Docker一键部署 &amp; 二进制运行<br>
 <a href="https://github.com/csznet/tgState" target="_blank" rel="noopener">开源地址</a></p>
-<h2 id="cloudflare建议设置">CloudFlare建议设置</h2>
-<p>建议套上Cloudflare并设置页面规则给<code>/d/*</code>完全缓存<br>
-<img src="img/02.png" alt="CloudFlare Page Rules"><br>
-开启Always Online<br>
-<img src="img/03.png" alt="CloudFlare Page Rules"><br>
-使用CloudFlare WAF控制请求速率<br>
-<img src="img/04.png" alt="CloudFlare WAF"><br>
-建议设置10秒内不能超过2次<br>
-<img src="img/05.png" alt="CloudFlare WAF"></p>
+<h1 id="进阶指南">进阶指南</h1>
+<h2 id="vercel">Vercel</h2>
+<p>vercel默认域名部分地区会有阻断，建议添加自定义域名<br>
+使用cname解析到<code>cname-china.vercel-dns.com</code></p>
+<h2 id="cloudflare">CloudFlare</h2>
+<p><strong>SSL证书访问</strong><br>
+目的：解决开启SSL&amp;Cloudflare CDN后重定向过多问题<br>
+设置路径：域名-&gt;SSL/TLS-&gt;Overview<br>
+设置为Full(strict)<br>
+<img src="https://img.static.csz.net/d/3.png" alt="SSL证书访问"></p>
+<p><strong>完全缓存图片</strong><br>
+目的：加快访问速度，减少api请求次数<br>
+设置路径：域名-&gt;Rules-&gt;Page Rules-&gt;Create Page Rule<br>
+给<code>/d/*</code>设置缓存所有，如下<br>
+<img src="https://img.static.csz.net/d/0.png" alt="完全缓存图片"></p>
+<p><strong>控制请求速率</strong><br>
+目的：防止刷上传<br>
+设置路径：域名-&gt;Security-&gt;WAF-&gt;Rate limiting rules<br>
+建议给<code>/api</code>限制在10s不超过2次请求，如下<br>
+<img src="https://img.static.csz.net/d/1.png" alt="控制请求速率"></p>
+<p><strong>开启Always Online</strong><br>
+目的：当服务宕机后，图片正常访问<br>
+设置路径：域名-&gt;Caching-&gt;Configuration-&gt;Always Online
+<img src="https://img.static.csz.net/d/2.png" alt="开启Always Online"></p>
 
 </div>
   
