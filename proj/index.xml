@@ -13,7 +13,7 @@
       <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
       
       <guid>https://www.csz.net/proj/tgstate/</guid>
-      <description>使用Telegram机器人和频道作为媒介存储的图床
+      <description>使用Telegram机器人和频道作为媒介存储的图床or网盘
 最大上传支持20MB，建议配合CloudFlare的缓存+always online使用
 支持Vercel一键搭建 &amp;amp; Docker一键部署 &amp;amp; 二进制运行
 开源地址
