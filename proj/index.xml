@@ -37,6 +37,19 @@ CloudFlare SSL证书访问
     </item>
     
     <item>
+      <title>zPing</title>
+      <link>https://www.csz.net/proj/zping/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.csz.net/proj/zping/</guid>
+      <description>一个多地Ping、MTR诊断工具
+由于日常需要经常用到Ping.pe
+突发奇想自己也写一个，于是就有了草草几行代码的cPing(开源地址)
+发给朋友看，朋友说太慢了，当天就用vue3+wss协议通讯又重写了一个，取名叫zPing
+实时展示mtr数据，而不是等mtr完一起展示</description>
+    </item>
+    
+    <item>
       <title>goFile</title>
       <link>https://www.csz.net/proj/gofile/</link>
       <pubDate>Fri, 17 Mar 2023 00:00:00 +0000</pubDate>
