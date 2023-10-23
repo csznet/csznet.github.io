@@ -3,7 +3,7 @@ name: Deploy Hugo # 任君喜欢
 on:
   push:
     branches:
-      - master   # master 更新触发
+      - gh   # master 更新触发
 
 jobs:
   build-deploy:
