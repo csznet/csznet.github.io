@@ -1,0 +1,17 @@
+baseURL = 'https://www.csz.net/'
+languageCode = 'zh-cn'
+title = 'CSZNET'
+theme = "csz"
+
+[[menus.main]]
+name = 'Home'
+pageRef = '/'
+weight = 10
+
+[[menus.main]]
+name = 'Proj'
+pageRef = '/proj'
+weight = 20
+
+[markup.highlight]
+  style = 'manni'

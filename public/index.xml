@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Home on CSZNET</title>
+    <link>https://www.csz.net/</link>
+    <description>Recent content in Home on CSZNET</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 01 Jan 2023 08:00:00 -0700</lastBuildDate><atom:link href="https://www.csz.net/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>tgState</title>
+      <link>https://www.csz.net/proj/tgstate/</link>
+      <pubDate>Mon, 02 Oct 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.csz.net/proj/tgstate/</guid>
+      <description>使用Telegram机器人和频道作为媒介存储的图床or网盘
+不限制大小上传，建议配合CloudFlare的缓存+always online使用
+支持Vercel一键搭建 &amp;amp; Docker一键部署 &amp;amp; 二进制运行
+开源地址
+进阶指南 Vercel vercel默认域名部分地区会有阻断，建议添加自定义域名
+使用cname解析到cname-china.vercel-dns.com
+CloudFlare SSL证书访问
+目的：解决开启SSL&amp;amp;Cloudflare CDN后重定向过多问题
+设置路径：域名-&amp;gt;SSL/TLS-&amp;gt;Overview
+设置为Full(strict)
+完全缓存图片
+目的：加快访问速度，减少api请求次数
+设置路径：域名-&amp;gt;Rules-&amp;gt;Page Rules-&amp;gt;Create Page Rule
+给/d/*设置缓存所有，如下
+控制请求速率
+目的：防止刷上传
+设置路径：域名-&amp;gt;Security-&amp;gt;WAF-&amp;gt;Rate limiting rules
+建议给/api限制在10s不超过2次请求，如下
+开启Always Online
+目的：当服务宕机后，图片正常访问
+设置路径：域名-&amp;gt;Caching-&amp;gt;Configuration-&amp;gt;Always Online </description>
+    </item>
+    
+    <item>
+      <title>zPing</title>
+      <link>https://www.csz.net/proj/zping/</link>
+      <pubDate>Sun, 09 Jul 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.csz.net/proj/zping/</guid>
+      <description>一个多地Ping、MTR诊断工具
+由于日常需要经常用到Ping.pe
+突发奇想自己也写一个，于是就有了草草几行代码的cPing(开源地址)
+发给朋友看，朋友说太慢了，当天就用vue3+wss协议通讯又重写了一个，取名叫zPing
+实时展示mtr数据，而不是等mtr完一起展示</description>
+    </item>
+    
+    <item>
+      <title>goFile</title>
+      <link>https://www.csz.net/proj/gofile/</link>
+      <pubDate>Fri, 17 Mar 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://www.csz.net/proj/gofile/</guid>
+      <description>便捷的Linux Web File Manager
+一键安装脚本：
+bash &amp;lt;(curl -s https://raw.githubusercontent.com/csznet/goFile/main/goFile.sh) 在需要调起Web文件管理的目录下输入goFile即可
+开源地址</description>
+    </item>
+    
+  </channel>
+</rss>

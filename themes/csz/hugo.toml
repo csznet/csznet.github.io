@@ -1,0 +1,9 @@
+baseURL = 'https://example.org/'
+languageCode = 'zh-cn'
+title = 'CSZNET'
+
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
