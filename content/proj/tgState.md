@@ -5,7 +5,7 @@ date = 2023-10-02
 
 
 使用Telegram机器人和频道作为媒介存储的图床or网盘  
-不限制大小上传，建议配合CloudFlare的缓存+always online使用  
+不限制大小、后缀上传，建议配合CloudFlare的缓存+always online使用  
 支持Vercel一键搭建 & Docker一键部署 & 二进制运行  
 [开源地址](https://github.com/csznet/tgState)
 
