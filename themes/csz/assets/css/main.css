@@ -5,7 +5,12 @@ body {
   line-height: 1.5;
   margin: 1rem;
   max-width: 768px;
-  margin: auto;
+}
+
+@media (min-width: 769px) {
+  body {
+    margin: auto;
+  }
 }
 
 header {
