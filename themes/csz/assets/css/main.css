@@ -56,3 +56,36 @@ main .post pre {
   padding: 1.5rem;
   line-height: 1.4;
 }
+
+.shortcode-card {
+  border-radius: .85em;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #e1e8ed;
+  box-sizing: border-box;
+  overflow: hidden;
+  font-size:14px
+}
+
+.shortcode-card {
+  background:#f5f8fa
+}
+
+
+.shortcode-card-content {
+  padding:1em
+}
+
+.shortcode-card-content h2 {
+  margin: 0 0 .15em;
+  max-height: 1.3em;
+  color: #000;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow:ellipsis
+}
+
+.shortcode-card header{
+  margin: auto;
+  border: none
+}
