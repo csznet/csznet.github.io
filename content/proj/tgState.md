@@ -8,7 +8,8 @@ date = 2023-10-02
 不限制大小、后缀上传  
 建议配合CloudFlare的缓存+always online使用  
 支持Vercel一键搭建 & Docker一键部署 & 二进制运行  
-[开源地址](https://github.com/csznet/tgState)
+
+{{< github repo="csznet/tgState">}}
 
 进阶指南
 ==

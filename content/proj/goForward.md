@@ -11,4 +11,4 @@ date = 2023-12-02
 
 ![preview](/images/goForward.png)
 
-[开源地址](https://github.com/csznet/goForward)
+{{< github repo="csznet/goForward">}}

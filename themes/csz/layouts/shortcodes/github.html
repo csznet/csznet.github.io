@@ -1,0 +1,16 @@
+{{ $repo := .Get "repo" }}
+{{ $detail := getJSON "https://api.github.com/repos/" $repo }}
+<article class="shortcode-card">
+  <a href="https://github.com/{{ $repo }}" target="_blank" rel="noopener">
+    <header>
+      <img alt="{{ $repo }}" src="https://opengraph.githubassets.com/1/{{ $repo }}" />
+    </header>
+    <div class="shortcode-card-content">
+      <h2>{{ .Get "repo" }}</h2>
+      {{ with $detail }}
+      <p>{{ .description }}</p>
+      {{ end }}
+      <span>github.com</span>
+    </div>
+  </a>
+</article>

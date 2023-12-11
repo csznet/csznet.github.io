@@ -10,7 +10,9 @@ date = 2023-07-09
 
 由于日常需要经常用到```Ping.pe```
 
-突发奇想自己也写一个，于是就有了草草几行代码的cPing([开源地址](https://github.com/csznet/cPing))
+突发奇想自己也写一个，于是就有了草草几行代码的cPing
+
+{{< github repo="csznet/cPing">}}
 
 ![cPing](https://img-static.csz.net/d/BQACAgUAAxkDAAOIZS_9xbA3yvlokU3VSJ6TT4SRaNgAAnYJAAIBxYBVRgNbyG8qFV0wBA)
 

@@ -10,4 +10,5 @@ bash <(curl -s https://raw.githubusercontent.com/csznet/goFile/main/goFile.sh)
 ```  
 
 在需要调起Web文件管理的目录下输入```goFile```即可  
-[开源地址](https://github.com/csznet/goFile)
+
+{{< github repo="csznet/goFile">}}
