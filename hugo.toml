@@ -13,6 +13,11 @@ name = 'Proj'
 pageRef = '/proj'
 weight = 20
 
+[[menus.main]]
+name = 'About'
+pageRef = '/about'
+weight = 30
+
 [markup]
   [markup.highlight]
     anchorLineNos = false
