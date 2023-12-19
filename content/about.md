@@ -3,6 +3,6 @@ title = 'About'
 draft = false
 +++
 
-## 联系方式
+## Link
 
 Email：root#csz.net (# == @)

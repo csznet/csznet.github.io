@@ -14,7 +14,7 @@ pageRef = '/proj'
 weight = 20
 
 [[menus.main]]
-name = 'About'
+name = 'Abt'
 pageRef = '/about'
 weight = 30
 
