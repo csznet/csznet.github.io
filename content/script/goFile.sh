@@ -68,6 +68,11 @@ rm $file_name
 
 # 添加执行权限并移动到 bin 目录
 chmod +x goFile
+
+if [ ! -d "/usr/local/bin" ]; then
+    mkdir -p /usr/local/bin
+fi
+
 mv goFile /usr/local/bin/
 
 # 提示用户
