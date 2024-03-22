@@ -48,8 +48,8 @@ fi
 # 获取百度的平均延迟（ping 5次并取平均值）
 ping_result=$(ping -c 5 -q baidu.com | awk -F'/' 'END{print $5}')
 
-# 判断平均延迟是否在100以内
-if echo "$ping_result 100" | awk '{exit !( \$1 < \$2)}'; then
+# 判断延迟是否在100以内
+if awk -v ping="$ping_result" 'BEGIN{exit !(ping < 100)}'; then
   echo "服务器位于中国国内，使用代理下载"
   url="https://mirror.ghproxy.com/https://github.com/csznet/goFile/releases/latest/download/${file_name}"
 else
