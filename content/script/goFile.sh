@@ -50,10 +50,10 @@ ping_result=$(ping -c 5 -q baidu.com | awk -F'/' 'END{print $5}')
 
 # 判断延迟是否在100以内
 if awk -v ping="$ping_result" 'BEGIN{exit !(ping < 100)}'; then
-  echo "服务器位于中国国内，使用代理下载"
+  echo "服务器距离中国较近，使用代理下载"
   url="https://mirror.ghproxy.com/https://github.com/csznet/goFile/releases/latest/download/${file_name}"
 else
-  echo "服务器位于国外，不使用代理下载"
+  echo "服务器距离中国较远，不使用代理下载"
   url="https://github.com/csznet/goFile/releases/latest/download/${file_name}"
 fi
 
