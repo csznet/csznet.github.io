@@ -93,3 +93,7 @@ main .post pre {
 .csznet{margin-block-start:2em;display:inline-flex;align-items:baseline}
 .csz{font-weight:700;font-size:24px}
 .net{font-size:12px;position:relative;bottom:10px;left:2px}
+
+ul {
+  list-style-type: circle;
+}
