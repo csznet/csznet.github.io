@@ -1,9 +1,0 @@
-{{ define "main" }}
-<div class="post">
-  <div class="info">
-  <h1>{{ .Title }}</h1>
-  </div>
-  {{ .Content }}
-</div>
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
-{{ end }}
